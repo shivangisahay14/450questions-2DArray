@@ -1,0 +1,31 @@
+Median in a row-wise sorted Matrix
+Time complexity:O(r*clog(r*c))
+
+class Solution{   
+public:
+    int median(vector<vector<int>> &matrix, int r, int c){
+        double ans;
+        vector<int>med;
+        for(int i=0;i<r;i++){
+            for(int j=0;j<c;j++){
+                
+                med.push_back(matrix[i][j]);
+            }
+        }
+        sort(med.begin(),med.end());
+        int q=med.size();
+        for(int k=0;k<q;k++){
+            if(k%2!=0){
+                ans=(double)med[q/2];
+            }
+            else{
+                ans=(double)(med[(q-1)/2]+med[q/2])/2;
+            }
+            
+        return ans;
+        }
+        // code here          
+    }
+};
+
+
