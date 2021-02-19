@@ -1,0 +1,22 @@
+int kthSmallest(int mat[MAX][MAX], int n, int k)
+{
+    vector<int> temp;
+    for(int i=0;i<n;i++){
+        for(int j=0;j<n;j++){
+            temp.push_back(mat[i][j]);
+        }
+    }
+    int m= temp.size();
+    priority_queue<int,vector<int>> pq(temp.begin(),temp.begin()+k); //using MaxHeap
+    for(int i=k;i<m;i++){
+        if(temp[i]<pq.top()){
+            pq.pop();
+            pq.push(temp[i]);
+        }
+    }
+    return pq.top();
+  
+}
+
+Expected Time Complexity: O(N*Log(N))
+Expected Auxiliary Space: O(N)
