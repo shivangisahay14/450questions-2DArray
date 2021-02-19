@@ -10,9 +10,9 @@ vector<vector<int>> sortedMatrix(int N, vector<vector<int>> Mat) {
         }
         sort(temp.begin(),temp.end());
         k=0;
-        for(int i=0;i<N;i++){
+        for(int i=0;i<N;i++){ //no of rows
             vector<int>va;
-            int cnt=N;
+            int cnt=N; //no of columns
             va.clear();
             while(cnt--){
             va.push_back(temp[k++]);
